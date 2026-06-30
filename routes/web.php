@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/services', [FrontendController::class, 'services'])->name('services');
+Route::get('/team', [FrontendController::class, 'team'])->name('team');
+Route::get('/portfolio', [FrontendController::class, 'portfolio'])->name('portfolio');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
